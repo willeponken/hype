@@ -1,26 +1,25 @@
-var http = require('http');
-var server;
+var http = require('http')
+  , server = http.createServer()
+
+  /* User specific variables
+   * If the port is lower than or equal to 1024; run as root. */
+  , NAME = 'Hype'
+  , PORT = 81
+  , ADDRESS = 'fc74:73e8:3913:f15b:d463:2fe7:db69:381e';
 
 function onRequest(req, res) {
   console.log(req.method, req.url);
-  console.log('sum hype is on');
+  console.log(this.name + ': got request.');
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('such cjdns\n\n                       such illegal\n\n      such hype\n\n           such ipv6 ' + req.connection.remoteAddress);
 }
 
 function onListening() {
-  console.log(this.name + ': Hype is listening...');
+  console.log(this.name + ': Listening on ' + ADDRESS + ':' + PORT);
+  console.log(this.name + ': Press CTRL+C to terminate');
 }
 
-ipv4srv = http.createServer();
-ipv6srv = http.createServer();
-
-ipv4srv.name = 'ipv4srv';
-ipv4srv.on('request', onRequest);
-ipv4srv.on('listening', onListening);
-ipv4srv.listen(1337, '127.0.0.1');
-
-ipv6srv.name = 'ipv6srv';
-ipv6srv.on('request', onRequest);
-ipv6srv.on('listening', onListening);
-ipv6srv.listen(80, 'fc74:73e8:3913:f15b:d463:2fe7:db69:381e');
+server.name = NAME;
+server.on('request', onRequest);
+server.on('listening', onListening);
+server.listen(PORT, ADDRESS);

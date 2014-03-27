@@ -1,0 +1,13 @@
+{
+  "name": "Hype",
+  "version": "0.0.1",
+  "repository": "git@github.com:willeponken/hype.git",
+  "main": "hype.js",
+  "scripts": {
+    "start": "node hype.js"
+  },
+  "author": "willeponken",
+  "licence": "GPL",
+  "dependencies": {
+  }
+}

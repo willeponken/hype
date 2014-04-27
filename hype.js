@@ -1,4 +1,9 @@
-var http = require('http')
+/*
+ * Just a silly little webserver to check our connection to
+ * the peers on cjdns.
+ * /
+  
+  var http = require('http')
   , server = http.createServer()
 
   /* User specific variables
@@ -11,7 +16,7 @@ function onRequest(req, res) {
   console.log(req.method, req.url);
   console.log(this.name + ': Request from ' + req.connection.remoteAddress);
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('such cjdns\n\n                       such illegal\n\n      such hype\n\n           such ipv6 ' + req.connection.remoteAddress);
+  res.end('Welcome ' + req.connection.remoteAddress + '.');
 }
 
 function onListening() {

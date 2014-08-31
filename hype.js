@@ -1,7 +1,7 @@
 /*
  * Just a silly little webserver to check our connection to
  * the peers on cjdns.
- * /
+ */
   
   var http = require('http')
   , server = http.createServer()
